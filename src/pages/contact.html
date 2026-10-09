@@ -1,0 +1,109 @@
+<!--meta {"title": "Request a Free Travel Quote | Vacations4Less", "description": "Tell us where and when you want to travel and we'll put together hotel, flight, car and activity options. Call 808.232.9000 or send a quote request.", "path": "contact.html", "nav": "contact"} -->
+<section class="page-head">
+  <div class="wrap">
+    <h1>Request a free trip quote</h1>
+    <p>Share as much or as little as you know. A travel planner will call or email you back with options.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap contact-grid">
+    <div class="panel">
+      <div class="alert" id="form-error" role="alert" hidden></div>
+      <form action="contact.php" method="post">
+        <input type="hidden" name="form" value="quote-full">
+        <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+
+        <div class="field">
+          <label for="c-name">Your name</label>
+          <input id="c-name" name="name" type="text" required autocomplete="name">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="c-phone">Phone</label>
+            <input id="c-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel">
+          </div>
+          <div class="field">
+            <label for="c-email">Email</label>
+            <input id="c-email" name="email" type="email" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="c-dest">Where do you want to go?</label>
+          <input id="c-dest" name="destination" type="text" placeholder="Maui, Orlando, a Caribbean cruise…">
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="c-depart">Leaving around</label>
+            <input id="c-depart" name="depart" type="date">
+          </div>
+          <div class="field">
+            <label for="c-return">Coming back around</label>
+            <input id="c-return" name="return" type="date">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="c-adults">Adults</label>
+            <select id="c-adults" name="adults">
+              <option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6+</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="c-kids">Children</label>
+            <select id="c-kids" name="children">
+              <option selected>0</option><option>1</option><option>2</option><option>3</option><option>4+</option>
+            </select>
+          </div>
+        </div>
+
+        <fieldset class="checks">
+          <legend>What should we book?</legend>
+          <div class="checks-grid">
+            <label class="check"><input type="checkbox" name="needs[]" value="Hotel"> Hotel</label>
+            <label class="check"><input type="checkbox" name="needs[]" value="Flights"> Flights</label>
+            <label class="check"><input type="checkbox" name="needs[]" value="Rental car"> Rental car</label>
+            <label class="check"><input type="checkbox" name="needs[]" value="Activities"> Activities</label>
+            <label class="check"><input type="checkbox" name="needs[]" value="Cruise"> Cruise</label>
+            <label class="check"><input type="checkbox" name="needs[]" value="Business travel"> Business travel</label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="c-budget">Rough budget (optional)</label>
+          <select id="c-budget" name="budget">
+            <option value="">Not sure yet</option>
+            <option>Under $2,000</option>
+            <option>$2,000 – $5,000</option>
+            <option>$5,000 – $10,000</option>
+            <option>$10,000+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="c-notes">Anything else we should know?</label>
+          <textarea id="c-notes" name="message" placeholder="Celebrating something? Need connecting rooms? Flexible on dates?"></textarea>
+        </div>
+
+        <button class="btn btn-call form-submit" type="submit">Send my quote request</button>
+        <p class="form-note">No obligation. We use your details only to plan your trip.</p>
+      </form>
+    </div>
+
+    <aside class="contact-aside">
+      <div class="panel">
+        <h2 style="font-size:var(--step-2)">Rather talk it through?</h2>
+        <p>Call and tell us about the trip. It's often the quickest way to get started.</p>
+        <a class="btn btn-call" href="tel:+18082329000">Call 808.232.9000</a>
+        <dl style="margin-top:24px">
+          <dt>Phone</dt>
+          <dd><a href="tel:+18082329000">808.232.9000</a></dd>
+          <dt>Email</dt>
+          <dd><a href="mailto:contact@vacations4less.us">contact@vacations4less.us</a></dd>
+          <dt>Book flights online</dt>
+          <dd><a href="https://vacations4less.us/airfare-booking/">Flight booking portal</a></dd>
+        </dl>
+      </div>
+    </aside>
+  </div>
+</section>
