@@ -453,3 +453,4 @@ p { margin: 0 0 1em; max-width: 68ch; }
 .services-grid .service h3 { font-size: var(--step-1); margin-bottom: .35em; }
 .services-grid .service p { margin-bottom: .6em; }
 @media (max-width: 700px) { .services-grid { grid-template-columns: 1fr; } }
+.section-head-row > h2 { margin: 0; }
