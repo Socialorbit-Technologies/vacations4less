@@ -7,19 +7,19 @@
 <meta name="description" content="{{description}}">
 {{robots}}
 <link rel="canonical" href="{{canonical}}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{og_type}}">
 <meta property="og:site_name" content="Vacations4Less">
 <meta property="og:title" content="{{title}}">
 <meta property="og:description" content="{{description}}">
 <meta property="og:url" content="{{canonical}}">
-<meta property="og:image" content="https://vacations4less.us/wp-content/uploads/elementor/thumbs/homepage-slider-bg-q2i1b32r5ma33g7dtd05lvh8sywyzsp492keppqc8g.jpg">
+<meta property="og:image" content="{{og_image}}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0E3B43">
-<link rel="icon" href="assets/img/mark.svg" type="image/svg+xml">
+<link rel="icon" href="{{base}}assets/img/mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/site.css?v={{version}}">
+<link rel="stylesheet" href="{{base}}assets/css/site.css?v={{version}}">
 {{schema}}
 </head>
 <body>
@@ -34,17 +34,17 @@
 
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="./" aria-label="Vacations4Less home">
+    <a class="brand" href="{{base}}./" aria-label="Vacations4Less home">
       <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="24" fill="#0E3B43"/><circle cx="24" cy="21" r="8" fill="#F4B740"/><path d="M0 27c6 0 9-4 15-4s9 4 15 4 9-4 18-4v25H0z" fill="#1C6E70"/><path d="M0 34c6 0 9-3.5 15-3.5S24 34 30 34s9-3.5 18-3.5V48H0z" fill="#BFE3D9"/><path d="M33 13c3-3 8-2 9 1-3-1-6 0-8 2" fill="none" stroke="#D7264E" stroke-width="2.4" stroke-linecap="round"/></svg>
       <span class="brand-name">Vacations<b>4</b>Less</span>
     </a>
     <nav class="nav" id="site-nav" aria-label="Main">
       <ul>
-        <li><a href="./" {{nav_home}}>Home</a></li>
-        <li><a href="services.html" {{nav_services}}>Services</a></li>
-        <li><a href="about.html" {{nav_about}}>About</a></li>
-        <li><a href="https://vacations4less.us/travel-tips-blog/">Travel tips</a></li>
-        <li><a href="contact.html" {{nav_contact}}>Get a quote</a></li>
+        <li><a href="{{base}}./" {{nav_home}}>Home</a></li>
+        <li><a href="{{base}}services.html" {{nav_services}}>Services</a></li>
+        <li><a href="{{base}}about.html" {{nav_about}}>About</a></li>
+        <li><a href="{{base}}blog/" {{nav_blog}}>Travel tips</a></li>
+        <li><a href="{{base}}contact.html" {{nav_contact}}>Get a quote</a></li>
       </ul>
     </nav>
     <a class="btn btn-call header-call" href="tel:+18082329000">

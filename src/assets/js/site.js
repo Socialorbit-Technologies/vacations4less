@@ -37,6 +37,31 @@
     if (p) p.textContent = 'Thanks for signing up. We\u2019ll email you travel deals and tips now and then.';
   }
 
+  // Prefill destination from a destination card (?dest=Maui%2C%20Hawaii)
+  var dest = params.get('dest');
+  var destInput = document.getElementById('c-dest');
+  if (dest && destInput && !destInput.value) {
+    destInput.value = dest.slice(0, 120);
+  }
+
+  // Blog gallery lightbox
+  var box2 = document.querySelector('.lightbox');
+  if (box2 && typeof box2.showModal === 'function') {
+    var lbImg = box2.querySelector('img');
+    var lbCap = box2.querySelector('.lightbox-caption');
+    document.querySelectorAll('.gallery a').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var thumb = a.querySelector('img');
+        lbImg.src = a.href;
+        lbImg.alt = thumb ? thumb.alt : '';
+        lbCap.textContent = thumb ? thumb.alt : '';
+        box2.showModal();
+      });
+    });
+    box2.addEventListener('click', function (e) { if (e.target === box2) box2.close(); });
+  }
+
   // Earliest travel date = today
   document.querySelectorAll('input[type="date"]').forEach(function (el) {
     el.min = new Date().toISOString().slice(0, 10);

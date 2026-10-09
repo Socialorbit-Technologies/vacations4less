@@ -2,12 +2,25 @@
 Options -Indexes
 DirectoryIndex index.html
 
-# STAGING ONLY: keep search engines out of /staging. Remove this block at launch.
+ErrorDocument 404 {{root}}404.html
+
+# STAGING ONLY: keep search engines out of /staging. Removed automatically by STAGING=0 builds.
 <IfModule mod_headers.c>
   Header set X-Robots-Tag "noindex, nofollow"
 </IfModule>
+# END STAGING ONLY
 
-# Block access to build/source leftovers if any get uploaded
+# Old WordPress URLs -> new pages (active once the site moves to the domain root)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^nakalele-blowhole-maui/?$ {{root}}blog/nakalele-blowhole-maui/ [R=301,L]
+  RewriteRule ^lahaina-wildfire-logistical-support/?$ {{root}}blog/lahaina-wildfire-logistical-support/ [R=301,L]
+  RewriteRule ^travel-tips-blog/?$ {{root}}blog/ [R=301,L]
+  RewriteRule ^about/?$ {{root}}about.html [R=301,L]
+  RewriteRule ^services/?$ {{root}}services.html [R=301,L]
+  RewriteRule ^contact/?$ {{root}}contact.html [R=301,L]
+</IfModule>
+
 <FilesMatch "\.(py|md|yml|yaml|json|lock)$">
   Require all denied
 </FilesMatch>

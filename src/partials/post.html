@@ -1,0 +1,45 @@
+<article class="post">
+  <header class="post-head">
+    <div class="wrap">
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <a href="{{base}}./">Home</a> <span aria-hidden="true">/</span> <a href="{{base}}blog/">Travel tips</a>
+      </nav>
+      <p class="post-meta"><span class="post-cat">{{post_category}}</span> <time datetime="{{post_date_iso}}">{{post_date}}</time></p>
+      <h1>{{post_title}}</h1>
+    </div>
+  </header>
+  <figure class="post-cover wrap">
+    <img src="{{post_cover}}" alt="{{post_cover_alt}}" fetchpriority="high">
+  </figure>
+  <div class="wrap post-layout">
+    <div class="post-body">
+{{post_body}}
+    </div>
+    <aside class="post-aside" aria-label="Plan a trip">
+      <div class="aside-card">
+        <h2>Planning a trip?</h2>
+        <p>Tell us where you want to go and we'll put together hotel, flight and car options.</p>
+        <a class="btn btn-call" href="tel:+18082329000">Call 808.232.9000</a>
+        <a class="btn btn-ghost" href="{{base}}contact.html">Request a quote</a>
+      </div>
+    </aside>
+  </div>
+</article>
+
+<section class="section bg-white">
+  <div class="wrap">
+    <div class="section-head section-head-row">
+      <h2>More travel tips</h2>
+      <a href="{{base}}blog/">All posts</a>
+    </div>
+    <div class="post-grid">
+{{post_more}}
+    </div>
+  </div>
+</section>
+
+<dialog class="lightbox" aria-label="Photo viewer">
+  <form method="dialog"><button class="lightbox-close" aria-label="Close photo">&times;</button></form>
+  <img alt="">
+  <p class="lightbox-caption"></p>
+</dialog>

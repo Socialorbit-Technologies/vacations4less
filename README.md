@@ -7,14 +7,20 @@ Static rebuild of [vacations4less.us](https://vacations4less.us/), deployed to *
 ```
 src/
   pages/        one file per page (meta block at the top: title, description, path, nav)
-  partials/     header.html + footer.html shared by every page
+  blog/         one file per blog post -> /blog/<file-name>/
+  blog-index.html  the /blog/ listing page
+  partials/     header, footer and the blog post template
   assets/       css, js, img
   contact.php   quote + newsletter form handler (emails contact@vacations4less.us)
   .htaccess     staging noindex, caching, compression
 build.py        assembles pages into public/
 ```
 
-Edit a page in `src/pages/`, commit, push. GitHub Actions builds and uploads `public/` over FTP.
+Edit a page in `src/pages/`, commit, push.
+
+### Adding a blog post
+
+Copy `src/blog/nakalele-blowhole-maui.html` to `src/blog/<url-slug>.html`, update the meta block (`title`, `seo_title`, `description`, `excerpt`, `date`, `category`, `cover`, `cover_alt`, `thumb`) and write the body in HTML. Image paths in `cover`/`thumb` are relative to `wp-content/uploads/`. The blog page, home page "travel tips" section, related posts, sitemap and article schema update automatically on the next push. GitHub Actions builds and uploads `public/` over FTP.
 
 Local preview: `python3 build.py && cd public && php -S localhost:8000`
 
@@ -47,4 +53,5 @@ Type: Bricolage Grotesque (headings), Source Serif 4 (body).
 - Images currently load from the WordPress media library (`/wp-content/uploads/…`). Copy them into `src/assets/img/` before WordPress is removed.
 - Flights, car rental, Hawaii availability, blog, privacy and terms link to the existing WordPress pages.
 - Confirm the testimonials are from real customers.
+- Old WordPress URLs (`/about/`, `/nakalele-blowhole-maui/`, etc.) 301-redirect to the new pages via `.htaccess` once deployed at the domain root.
 - Build with `STAGING=0` for production (removes noindex), and point the deploy at `public_html/`.
