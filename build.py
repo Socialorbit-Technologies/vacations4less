@@ -180,7 +180,8 @@ def build():
     sitemap.append(("blog/", posts[0]["date"][:10] if posts else None))
 
     # ---- Main pages -------------------------------------------------------
-    latest = "\n".join(post_card(p, "") for p in posts[:3])
+    home_posts = sorted(posts, key=lambda p: not p.get("pin"))[:3]
+    latest = "\n".join(post_card(p, "") for p in home_posts)
     for page in sorted((SRC / "pages").glob("*.html")):
         meta, body = read_source(page)
         body = body.replace("{{blog_latest}}", latest)
