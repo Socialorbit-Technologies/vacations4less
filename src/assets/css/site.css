@@ -509,8 +509,11 @@ p { margin: 0 0 1em; max-width: 68ch; }
 .slider-pause[aria-pressed="true"] .i-pause { display: none; }
 .slider-dots { display: flex; gap: 6px; align-items: center; }
 .slider-dot { width: 34px; height: 30px; padding: 0; border: 0; background: none; cursor: pointer; display: grid; align-items: center; }
+.slider-dot { transition: width .3s ease; }
+.slider-dot.is-active { width: 56px; }
 .slider-dot span { display: block; height: 4px; border-radius: 4px; background: rgba(255,255,255,.35); overflow: hidden; position: relative; }
 .slider-dot span::after { content: ""; position: absolute; inset: 0; background: var(--orange); transform: scaleX(0); transform-origin: left; }
+.slider-dot.is-active span { background: rgba(255,255,255,.75); }
 .slider-dot.is-active span::after { transform: scaleX(1); }
 .hero-slider.is-playing .slider-dot.is-active span.run::after { transform: scaleX(0); animation: dot-fill var(--slide-ms, 6500ms) linear both; }
 .hero-slider.is-paused .slider-dot.is-active span::after { animation-play-state: paused; }
