@@ -32,7 +32,7 @@ STAGING = os.environ.get("STAGING", "1") != "0"
 VERSION = time.strftime("%Y%m%d%H%M")
 ROOT_PATH = os.environ.get("ROOT_PATH", "/staging/" if STAGING else "/")
 UPLOADS = "https://vacations4less.us/wp-content/uploads/"
-DEFAULT_OG = UPLOADS + "2023/04/Nakalele-Blowhole-Maui-1536x864.jpg"
+DEFAULT_OG = UPLOADS + "2023/03/White-wash-staircases-on-Santorini-Island-Greece.-The-view-toward-Caldera-sea-with-cruise-ship-awaiting.-1536x1026.jpeg"
 
 META_RE = re.compile(r"^\s*<!--meta\s+(\{.*?\})\s*-->\s*", re.S)
 
@@ -45,7 +45,8 @@ ORG = {
     "email": "contact@vacations4less.us",
     "logo": SITE_URL + "assets/img/mark.svg",
     "image": DEFAULT_OG,
-    "description": "Independent IATAN and CLIA accredited travel agency booking hotels, flights, rental cars, cruises and activities.",
+    "description": "Independent IATAN and CLIA accredited travel agency booking hotels, flights, rental cars, cruises and activities worldwide.",
+    "areaServed": "Worldwide",
     "memberOf": [
         {"@type": "Organization", "name": "International Airlines Travel Agent Network (IATAN)"},
         {"@type": "Organization", "name": "Cruise Lines International Association (CLIA)"},

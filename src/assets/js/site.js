@@ -62,6 +62,104 @@
     box2.addEventListener('click', function (e) { if (e.target === box2) box2.close(); });
   }
 
+  // Hero slider
+  var slider = document.querySelector('.hero-slider');
+  if (slider) {
+    var SLIDE_MS = 6500;
+    var media = slider.querySelectorAll('.slide-media');
+    var copies = slider.querySelectorAll('.slide-copy');
+    var dots = slider.querySelectorAll('.slider-dot');
+    var pauseBtn = slider.querySelector('.slider-pause');
+    var live = slider.querySelector('.slide-copies');
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var current = 0, timer = null, userPaused = reduce, hoverPaused = false;
+    slider.style.setProperty('--slide-ms', SLIDE_MS + 'ms');
+
+    var load = function (i) {
+      var img = media[i] && media[i].querySelector('img[data-src]');
+      if (!img) return;
+      if (img.dataset.srcset) img.srcset = img.dataset.srcset;
+      img.src = img.dataset.src;
+      img.removeAttribute('data-src');
+      img.removeAttribute('data-srcset');
+    };
+
+    var show = function (i) {
+      var n = media.length;
+      i = (i + n) % n;
+      load(i);
+      load((i + 1) % n);
+      [media, copies, dots].forEach(function (list) {
+        list.forEach(function (el, k) { el.classList.toggle('is-active', k === i); });
+      });
+      copies.forEach(function (el, k) {
+        if (k === i) el.removeAttribute('aria-hidden'); else el.setAttribute('aria-hidden', 'true');
+      });
+      dots.forEach(function (el, k) {
+        if (k === i) el.setAttribute('aria-current', 'true'); else el.removeAttribute('aria-current');
+      });
+      current = i;
+    };
+
+    // The progress bar under the active dot runs in step with the timer
+    var restartBar = function () {
+      var bar = dots[current] && dots[current].querySelector('span');
+      if (!bar) return;
+      bar.classList.remove('run');
+      void bar.offsetWidth;
+      bar.classList.add('run');
+    };
+
+    var playing = function () { return !userPaused && !hoverPaused && !document.hidden; };
+    var schedule = function () {
+      clearTimeout(timer);
+      slider.classList.toggle('is-playing', !userPaused);
+      slider.classList.toggle('is-paused', userPaused || hoverPaused);
+      live.setAttribute('aria-live', userPaused ? 'polite' : 'off');
+      if (playing()) {
+        restartBar();
+        timer = setTimeout(function () { show(current + 1); schedule(); }, SLIDE_MS);
+      }
+    };
+    var go = function (i) { show(i); schedule(); };
+
+    slider.querySelector('.slider-prev').addEventListener('click', function () { go(current - 1); });
+    slider.querySelector('.slider-next').addEventListener('click', function () { go(current + 1); });
+    dots.forEach(function (d, k) { d.addEventListener('click', function () { go(k); }); });
+    pauseBtn.addEventListener('click', function () {
+      userPaused = !userPaused;
+      pauseBtn.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
+      pauseBtn.setAttribute('aria-label', userPaused ? 'Play slideshow' : 'Pause slideshow');
+      schedule();
+    });
+    pauseBtn.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
+    if (userPaused) pauseBtn.setAttribute('aria-label', 'Play slideshow');
+
+    // Hold still while someone is reading the copy or filling in the quote form
+    var hold = function (on) { return function () { hoverPaused = on; schedule(); }; };
+    var copyArea = slider.querySelector('.hero-copy');
+    copyArea.addEventListener('mouseenter', hold(true));
+    copyArea.addEventListener('mouseleave', hold(false));
+    slider.addEventListener('focusin', hold(true));
+    slider.addEventListener('focusout', function (e) { if (!slider.contains(e.relatedTarget)) hold(false)(); });
+    document.addEventListener('visibilitychange', schedule);
+
+    // Swipe on touch screens (not on the form)
+    var startX = null;
+    slider.addEventListener('touchstart', function (e) {
+      startX = e.target.closest('.ticket') ? null : e.touches[0].clientX;
+    }, { passive: true });
+    slider.addEventListener('touchend', function (e) {
+      if (startX === null) return;
+      var dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 50) go(current + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+
+    show(0);
+    schedule();
+  }
+
   // Earliest travel date = today
   document.querySelectorAll('input[type="date"]').forEach(function (el) {
     el.min = new Date().toISOString().slice(0, 10);

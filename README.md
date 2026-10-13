@@ -39,14 +39,17 @@ If the host doesn't support FTPS, change `protocol: ftps` to `ftp` in `.github/w
 
 | Token | Hex | Use |
 |---|---|---|
-| Lagoon | `#0E3B43` | primary dark, headings |
-| Reef | `#1C6E70` | links |
-| Sea glass | `#BFE3D9` | tints |
-| Mist | `#F2F8F7` | page background |
-| Hibiscus | `#D7264E` | calls to action |
-| Sun | `#F4B740` | small highlights |
+| Navy | `#0B2E4F` | headings, footer |
+| Ocean | `#0A5FA8` | primary blue: bands, page headers, links |
+| Sky | `#E6F2FB` | alternate section background |
+| Orange | `#FF7A1A` | calls to action (always with navy text for contrast) |
+| Orange soft | `#FFC58F` | small highlights on blue/dark |
 
 Type: Bricolage Grotesque (headings), Source Serif 4 (body).
+
+## Home page slider
+
+Slides live at the top of `src/pages/index.html` (`.slide-media` for the photo, `.slide-copy` for the text, one `.slider-dot` each, all in the same order). Only the first image loads up front; the rest load just before they show. It autoplays every 6.5 s, pauses on hover, focus or the pause button, and doesn't autoplay for visitors who prefer reduced motion.
 
 ## Before going live
 
