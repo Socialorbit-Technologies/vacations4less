@@ -65,7 +65,7 @@
   // Hero slider
   var slider = document.querySelector('.hero-slider');
   if (slider) {
-    var SLIDE_MS = 6500;
+    var SLIDE_MS = 4000;
     var media = slider.querySelectorAll('.slide-media');
     var copies = slider.querySelectorAll('.slide-copy');
     var dots = slider.querySelectorAll('.slider-dot');
