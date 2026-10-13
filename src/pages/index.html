@@ -48,7 +48,7 @@
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
           Call 808.232.9000
         </a>
-        <a class="btn btn-ghost" href="services.html">See what we book</a>
+        <a class="btn btn-ghost" href="{{base}}services/">See what we book</a>
       </div>
       <div class="slider-controls">
         <button type="button" class="slider-btn slider-prev" aria-label="Previous slide"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
@@ -70,7 +70,7 @@
           Anywhere
         </span>
       </div>
-      <form action="contact.php" method="post">
+      <form action="{{base}}contact.php" method="post">
         <input type="hidden" name="form" value="quote-hero">
         <div class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
         <div class="field">
@@ -128,18 +128,18 @@
         <h2>Where to next?</h2>
         <p>We book trips on every continent. Pick a place to start a quote, or tell us somewhere else entirely.</p>
       </div>
-      <a href="contact.html">Somewhere else</a>
+      <a href="{{base}}contact/">Somewhere else</a>
     </div>
   </div>
   <ul class="destinations" role="list">
-    <li><a class="dest" href="contact.html?dest=Nusa%20Penida%2C%20Bali#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Atuh-Beach-in-Nusa-Penida-768x512.jpeg" alt="Atuh Beach cliffs on Nusa Penida" loading="lazy" width="768" height="512"><span>Nusa Penida, Bali</span></a></li>
-    <li><a class="dest" href="contact.html?dest=Vancouver%2C%20Canada#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Vancouver-in-Canada-768x522.jpeg" alt="Vancouver skyline across the harbor" loading="lazy" width="768" height="512"><span>Vancouver, Canada</span></a></li>
-    <li><a class="dest" href="contact.html?dest=Costa%20del%20Sol%2C%20Spain#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Fuengirola-coastline-on-Costa-del-sol-aerial-view-768x512.jpeg" alt="Aerial view of the Fuengirola coastline" loading="lazy" width="768" height="512"><span>Costa del Sol, Spain</span></a></li>
-    <li><a class="dest" href="contact.html?dest=Melbourne%2C%20Australia#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Melbourne-city-skyline-at-twilight-768x512.jpeg" alt="Melbourne skyline at twilight" loading="lazy" width="768" height="512"><span>Melbourne, Australia</span></a></li>
-    <li><a class="dest" href="contact.html?dest=Casablanca%2C%20Morocco#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Hassan-II-Mosque-768x512.jpeg" alt="Hassan II Mosque on the Casablanca waterfront" loading="lazy" width="768" height="512"><span>Casablanca, Morocco</span></a></li>
-    <li><a class="dest" href="contact.html?dest=Yucat%C3%A1n%2C%20Mexico#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Izamal-the-yellow-colonial-city-of-Yucatan-Mexico-768x512.jpeg" alt="Yellow colonial arches in Izamal, Yucatán" loading="lazy" width="768" height="512"><span>Yucatán, Mexico</span></a></li>
-    <li><a class="dest" href="contact.html?dest=Maldives#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Tropical-beach-in-the-Maldives-768x292.jpeg" alt="Palm trees over a white-sand Maldives beach" loading="lazy" width="768" height="512"><span>Maldives</span></a></li>
-    <li><a class="dest" href="contact.html?dest=Maui%2C%20Hawaii#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/../04/Kahakuloa-4-768x432.jpg" alt="Kahakuloa Head on Maui's north shore" loading="lazy" width="768" height="512"><span>Maui, Hawaii</span></a></li>
+    <li><a class="dest" href="{{base}}contact/?dest=Nusa%20Penida%2C%20Bali#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Atuh-Beach-in-Nusa-Penida-768x512.jpeg" alt="Atuh Beach cliffs on Nusa Penida" loading="lazy" width="768" height="512"><span>Nusa Penida, Bali</span></a></li>
+    <li><a class="dest" href="{{base}}contact/?dest=Vancouver%2C%20Canada#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Vancouver-in-Canada-768x522.jpeg" alt="Vancouver skyline across the harbor" loading="lazy" width="768" height="512"><span>Vancouver, Canada</span></a></li>
+    <li><a class="dest" href="{{base}}contact/?dest=Costa%20del%20Sol%2C%20Spain#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Fuengirola-coastline-on-Costa-del-sol-aerial-view-768x512.jpeg" alt="Aerial view of the Fuengirola coastline" loading="lazy" width="768" height="512"><span>Costa del Sol, Spain</span></a></li>
+    <li><a class="dest" href="{{base}}contact/?dest=Melbourne%2C%20Australia#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Melbourne-city-skyline-at-twilight-768x512.jpeg" alt="Melbourne skyline at twilight" loading="lazy" width="768" height="512"><span>Melbourne, Australia</span></a></li>
+    <li><a class="dest" href="{{base}}contact/?dest=Casablanca%2C%20Morocco#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Hassan-II-Mosque-768x512.jpeg" alt="Hassan II Mosque on the Casablanca waterfront" loading="lazy" width="768" height="512"><span>Casablanca, Morocco</span></a></li>
+    <li><a class="dest" href="{{base}}contact/?dest=Yucat%C3%A1n%2C%20Mexico#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Izamal-the-yellow-colonial-city-of-Yucatan-Mexico-768x512.jpeg" alt="Yellow colonial arches in Izamal, Yucatán" loading="lazy" width="768" height="512"><span>Yucatán, Mexico</span></a></li>
+    <li><a class="dest" href="{{base}}contact/?dest=Maldives#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Tropical-beach-in-the-Maldives-768x292.jpeg" alt="Palm trees over a white-sand Maldives beach" loading="lazy" width="768" height="512"><span>Maldives</span></a></li>
+    <li><a class="dest" href="{{base}}contact/?dest=Maui%2C%20Hawaii#c-dest"><img src="https://vacations4less.us/wp-content/uploads/2023/03/../04/Kahakuloa-4-768x432.jpg" alt="Kahakuloa Head on Maui's north shore" loading="lazy" width="768" height="512"><span>Maui, Hawaii</span></a></li>
   </ul>
 </section>
 
@@ -155,7 +155,7 @@
         <div>
           <h3>Hotels and accommodations</h3>
           <p>From luxury resorts to budget-friendly stays, we match the place to your plans, your budget and the comfort you want.</p>
-          <div class="service-links"><a href="contact.html">Ask about hotels</a></div>
+          <div class="service-links"><a href="{{base}}contact/">Ask about hotels</a></div>
         </div>
       </article>
       <article class="service">
@@ -163,7 +163,7 @@
         <div>
           <h3>Flights</h3>
           <p>Tell us where and when you want to fly. We find flights that fit your schedule and budget, and book them for you.</p>
-          <div class="service-links"><a href="contact.html">Request a flight quote</a></div>
+          <div class="service-links"><a href="{{base}}contact/">Request a flight quote</a></div>
         </div>
       </article>
       <article class="service">
@@ -171,7 +171,7 @@
         <div>
           <h3>Rental cars and ground transport</h3>
           <p>Rental cars, airport transfers and other ground transportation, booked ahead so getting around is the easy part of the trip.</p>
-          <div class="service-links"><a href="contact.html">Ask about car rentals</a></div>
+          <div class="service-links"><a href="{{base}}contact/">Ask about car rentals</a></div>
         </div>
       </article>
       <article class="service">
@@ -179,7 +179,7 @@
         <div>
           <h3>Tours and activities</h3>
           <p>Sightseeing tours, adventure excursions and dining, chosen around what you actually like to do.</p>
-          <div class="service-links"><a href="contact.html">Plan activities</a></div>
+          <div class="service-links"><a href="{{base}}contact/">Plan activities</a></div>
         </div>
       </article>
     </div>
@@ -218,7 +218,7 @@
         <li><strong>IATAN</strong><span>International Airlines Travel Agent Network</span></li>
         <li><strong>CLIA</strong><span>Cruise Lines International Association</span></li>
       </ul>
-      <p style="margin-top:1.4rem"><a href="about.html">More about us</a></p>
+      <p style="margin-top:1.4rem"><a href="{{base}}about/">More about us</a></p>
     </div>
     <div class="split-photo"><img src="https://vacations4less.us/wp-content/uploads/2023/03/Passports-to-world-travel-768x516.jpeg" alt="Passports, sunglasses and a camera on a world map" loading="lazy"></div>
   </div>
@@ -254,7 +254,7 @@
         <h2>From our travel tips</h2>
         <p>Destination notes and practical advice from our team.</p>
       </div>
-      <a href="blog/">All posts</a>
+      <a href="{{base}}blog/">All posts</a>
     </div>
     <div class="post-grid">
 {{blog_latest}}
@@ -275,7 +275,7 @@
       </details>
       <details class="faq-item">
         <summary>How do I book a flight with you?</summary>
-        <div><p>Send a <a href="contact.html">quote request</a> or call 808.232.9000 with your route and dates. We find flights that fit and book them for you.</p></div>
+        <div><p>Send a <a href="{{base}}contact/">quote request</a> or call 808.232.9000 with your route and dates. We find flights that fit and book them for you.</p></div>
       </details>
       <details class="faq-item">
         <summary>Do you plan business travel?</summary>
@@ -287,7 +287,7 @@
       </details>
       <details class="faq-item">
         <summary>How do I get a quote?</summary>
-        <div><p>Call 808.232.9000 or <a href="contact.html">send a quote request</a> with where you want to go, your dates, who's traveling and your budget. A travel planner will get back to you with options.</p></div>
+        <div><p>Call 808.232.9000 or <a href="{{base}}contact/">send a quote request</a> with where you want to go, your dates, who's traveling and your budget. A travel planner will get back to you with options.</p></div>
       </details>
     </div>
   </div>
@@ -301,7 +301,7 @@
     </div>
     <div>
       <p>Prefer to write it down? Send a quote request and we'll get back to you with options.</p>
-      <a class="btn btn-ghost" href="contact.html">Request a quote</a>
+      <a class="btn btn-ghost" href="{{base}}contact/">Request a quote</a>
     </div>
   </div>
 </section>

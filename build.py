@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the Vacations4Less static site.
 
-- src/pages/*.html  -> public/<name>.html          (main pages)
+- src/pages/*.html  -> public/<name>/index.html    (clean URLs: /about/, /services/ ...)
 - src/blog/*.html   -> public/blog/<slug>/index.html (one per post)
 - blog index        -> public/blog/index.html       (generated)
 - sitemap.xml, robots.txt, assets, contact.php, .htaccess
@@ -199,7 +199,14 @@ def build():
                     for q, a in faq
                 ],
             })
-        render(header, footer, body, meta=meta, out_path=OUT / page.name, base="", extra_schema=schema)
+        if page.stem == "index":
+            out, base = OUT / "index.html", ""
+        elif page.stem == "404":
+            # served at any URL depth, so links must be root-absolute
+            out, base = OUT / "404.html", ROOT_PATH
+        else:
+            out, base = OUT / page.stem / "index.html", "../"
+        render(header, footer, body, meta=meta, out_path=out, base=base, extra_schema=schema)
         if not meta.get("noindex"):
             sitemap.append((meta.get("path", ""), None))
 

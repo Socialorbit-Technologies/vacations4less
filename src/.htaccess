@@ -10,15 +10,15 @@ ErrorDocument 404 {{root}}404.html
 </IfModule>
 # END STAGING ONLY
 
-# Old WordPress URLs -> new pages (active once the site moves to the domain root)
+# Old WordPress URLs -> new pages (active once the site moves to the domain root).
+# /about/, /services/ and /contact/ keep the same address as on WordPress, so they need no redirect.
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteRule ^nakalele-blowhole-maui/?$ {{root}}blog/nakalele-blowhole-maui/ [R=301,L]
   RewriteRule ^lahaina-wildfire-logistical-support/?$ {{root}}blog/lahaina-wildfire-logistical-support/ [R=301,L]
   RewriteRule ^travel-tips-blog/?$ {{root}}blog/ [R=301,L]
-  RewriteRule ^about/?$ {{root}}about.html [R=301,L]
-  RewriteRule ^services/?$ {{root}}services.html [R=301,L]
-  RewriteRule ^contact/?$ {{root}}contact.html [R=301,L]
+  # Earlier staging links that ended in .html
+  RewriteRule ^(services|about|contact|thank-you)\.html$ {{root}}$1/ [R=301,L]
 </IfModule>
 
 <FilesMatch "\.(py|md|yml|yaml|json|lock)$">

@@ -1,7 +1,7 @@
 <?php
 /**
  * Vacations4Less — quote request + newsletter handler.
- * Sends an email to the agency inbox, then redirects to thank-you.html.
+ * Sends an email to the agency inbox, then redirects to thank-you/.
  * Works on standard DirectAdmin/PHP hosting (uses PHP mail()).
  */
 
@@ -10,18 +10,8 @@ $FROM      = 'no-reply@vacations4less.us';   // must be an address on this domai
 $SITE_NAME = 'Vacations4Less website';
 
 function back_with_error($code) {
-    $ref  = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'contact.html';
-    $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
-    // Only redirect back to our own pages
-    if (parse_url($ref, PHP_URL_HOST) && parse_url($ref, PHP_URL_HOST) !== $host) {
-        $ref = 'contact.html';
-    }
-    $ref = preg_replace('/[?#].*$/', '', $ref);
-    // Quote errors are shown on the full contact form
-    if (basename(parse_url($ref, PHP_URL_PATH) ?: '') !== 'contact.html') {
-        $ref = 'contact.html';
-    }
-    header('Location: ' . $ref . '?error=' . urlencode($code) . '#form-error', true, 303);
+    // Errors are always shown on the full contact form, which sits next to this script
+    header('Location: contact/?error=' . urlencode($code) . '#form-error', true, 303);
     exit;
 }
 
@@ -33,13 +23,13 @@ function clean($key, $max = 500) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header('Location: contact.html', true, 303);
+    header('Location: contact/', true, 303);
     exit;
 }
 
 // Honeypot: bots fill the hidden "website" field. Pretend success.
 if (!empty($_POST['website'])) {
-    header('Location: thank-you.html', true, 303);
+    header('Location: thank-you/', true, 303);
     exit;
 }
 
@@ -54,7 +44,7 @@ if ($form === 'newsletter') {
     if ($email === '') back_with_error('email');
     $subject = 'Mailing list signup: ' . $email;
     $body    = "New mailing list signup from the website.\n\nEmail: {$email}\nDate: " . date('Y-m-d H:i T') . "\n";
-    $redirect = 'thank-you.html#subscribed';
+    $redirect = 'thank-you/#subscribed';
 } else {
     $name  = clean('name', 120);
     $phone = clean('phone', 40);
@@ -92,7 +82,7 @@ if ($form === 'newsletter') {
     $subject = 'Trip quote request: ' . $name . ($fields['Destination'] ? ' — ' . $fields['Destination'] : '');
     $body    = "New quote request from the {$source}.\n\n" . implode("\n", $lines) .
                "\n\nSent " . date('Y-m-d H:i T') . " from " . (isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : 'unknown') . "\n";
-    $redirect = 'thank-you.html';
+    $redirect = 'thank-you/';
 }
 
 // Strip anything that could inject headers

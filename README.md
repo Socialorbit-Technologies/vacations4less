@@ -56,5 +56,5 @@ Slides live at the top of `src/pages/index.html` (`.slide-media` for the photo, 
 - Images currently load from the WordPress media library (`/wp-content/uploads/…`). Copy them into `src/assets/img/` before WordPress is removed.
 - Privacy policy and terms link to the existing WordPress pages. There is no self-booking: every booking goes through the quote form or a phone call.
 - Confirm the testimonials are from real customers.
-- Old WordPress URLs (`/about/`, `/nakalele-blowhole-maui/`, etc.) 301-redirect to the new pages via `.htaccess` once deployed at the domain root.
+- Pages use clean URLs (`/about/`, `/services/`, `/contact/`), the same addresses as the WordPress site, so no redirects are needed for them. Old blog URLs (`/nakalele-blowhole-maui/`, `/travel-tips-blog/`) 301-redirect to `/blog/...` via `.htaccess` once deployed at the domain root.
 - Build with `STAGING=0` for production (removes noindex), and point the deploy at `public_html/`.
