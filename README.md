@@ -47,6 +47,10 @@ If the host doesn't support FTPS, change `protocol: ftps` to `ftp` in `.github/w
 
 Type: Bricolage Grotesque (headings), Source Serif 4 (body).
 
+## Colour previews (staging only)
+
+Staging builds show a "Colours" button bottom-left with five palettes: Ocean & Sunset (default), Royal & Sunshine, Navy & Coral, Emerald & Mango, Indigo & Amber. Link straight to one with `?theme=royal` (or `coral`, `emerald`, `dusk`, `ocean`). The palettes live at the end of `src/assets/css/site.css`. Production builds (`STAGING=0`) leave the switcher out; to launch with a variant, copy its values into `:root`.
+
 ## Home page slider
 
 Slides live at the top of `src/pages/index.html` (`.slide-media` for the photo, `.slide-copy` for the text, one `.slider-dot` each, all in the same order). Only the first image loads up front; the rest load just before they show. It autoplays every 4 s (`SLIDE_MS` in `src/assets/js/site.js`), pauses while someone types in the quote form, uses the slider by keyboard, presses pause, or switches tabs. Visitors who prefer reduced motion get a plain crossfade with no zoom.

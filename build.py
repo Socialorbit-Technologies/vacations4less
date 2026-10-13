@@ -86,6 +86,8 @@ def render(header, footer, body, *, meta, out_path, base, extra_schema=""):
                   '<meta name="robots" content="index, follow, max-image-preview:large">',
         "schema": extra_schema,
         "version": VERSION,
+        "theme_head": (SRC / "partials/theme-head.html").read_text() if STAGING else "",
+        "theme_switcher": (SRC / "partials/theme-switcher.html").read_text() if STAGING else "",
     }
     for key in ("home", "services", "about", "blog", "contact"):
         values[f"nav_{key}"] = 'aria-current="page"' if nav == key else ""
