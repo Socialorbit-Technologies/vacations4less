@@ -71,8 +71,7 @@
     var dots = slider.querySelectorAll('.slider-dot');
     var pauseBtn = slider.querySelector('.slider-pause');
     var live = slider.querySelector('.slide-copies');
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var current = 0, timer = null, userPaused = reduce, hoverPaused = false;
+    var current = 0, timer = null, userPaused = false, hoverPaused = false;
     slider.style.setProperty('--slide-ms', SLIDE_MS + 'ms');
 
     var load = function (i) {
@@ -135,14 +134,35 @@
     pauseBtn.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
     if (userPaused) pauseBtn.setAttribute('aria-label', 'Play slideshow');
 
-    // Hold still while someone is reading the copy or filling in the quote form
-    var hold = function (on) { return function () { hoverPaused = on; schedule(); }; };
-    var copyArea = slider.querySelector('.hero-copy');
-    copyArea.addEventListener('mouseenter', hold(true));
-    copyArea.addEventListener('mouseleave', hold(false));
-    slider.addEventListener('focusin', hold(true));
-    slider.addEventListener('focusout', function (e) { if (!slider.contains(e.relatedTarget)) hold(false)(); });
+    // Hold still only while someone is typing in the quote form or moving
+    // through the slider with the keyboard. Mouse hover and mouse clicks
+    // don't pause it; the pause button is there for that.
+    var form = slider.querySelector('.ticket');
+    var holdIfNeeded = function () {
+      var el = document.activeElement;
+      var inForm = form && form.contains(el);
+      var keyboardInSlider = slider.contains(el) && el.matches && el.matches(':focus-visible');
+      var next = !!(inForm || keyboardInSlider);
+      if (next !== hoverPaused) { hoverPaused = next; schedule(); }
+    };
+    slider.addEventListener('focusin', function () { setTimeout(holdIfNeeded, 0); });
+    slider.addEventListener('focusout', function () { setTimeout(holdIfNeeded, 0); });
     document.addEventListener('visibilitychange', schedule);
+
+    // Load every slide photo once the page has finished loading,
+    // so a slide never fades in before its photo is ready
+    var preloadAll = function () { for (var k = 0; k < media.length; k++) load(k); };
+    if (document.readyState === 'complete') setTimeout(preloadAll, 300);
+    else window.addEventListener('load', function () { setTimeout(preloadAll, 300); });
+
+    // On small screens the photo sits behind the headline only, not the form
+    var copyArea = slider.querySelector('.hero-copy');
+    var sizeMedia = function () {
+      var h = copyArea.getBoundingClientRect().bottom - slider.getBoundingClientRect().top + 48;
+      slider.style.setProperty('--media-h', Math.round(h) + 'px');
+    };
+    sizeMedia();
+    window.addEventListener('resize', sizeMedia);
 
     // Swipe on touch screens (not on the form)
     var startX = null;

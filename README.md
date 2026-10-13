@@ -49,7 +49,7 @@ Type: Bricolage Grotesque (headings), Source Serif 4 (body).
 
 ## Home page slider
 
-Slides live at the top of `src/pages/index.html` (`.slide-media` for the photo, `.slide-copy` for the text, one `.slider-dot` each, all in the same order). Only the first image loads up front; the rest load just before they show. It autoplays every 4 s (`SLIDE_MS` in `src/assets/js/site.js`), pauses on hover, focus or the pause button, and doesn't autoplay for visitors who prefer reduced motion.
+Slides live at the top of `src/pages/index.html` (`.slide-media` for the photo, `.slide-copy` for the text, one `.slider-dot` each, all in the same order). Only the first image loads up front; the rest load just before they show. It autoplays every 4 s (`SLIDE_MS` in `src/assets/js/site.js`), pauses while someone types in the quote form, uses the slider by keyboard, presses pause, or switches tabs. Visitors who prefer reduced motion get a plain crossfade with no zoom.
 
 ## Before going live
 
