@@ -1,7 +1,7 @@
 <div class="theme-switch" data-nosnippet>
   <div class="theme-panel" id="theme-panel" hidden>
     <p>Colour preview (staging only). Your pick carries across pages; share the link to show it.</p>
-    <button type="button" class="theme-opt" data-theme-opt="ocean" aria-pressed="false"><span class="sw"><i style="background:#0B2E4F"></i><i style="background:#0A5FA8"></i><i style="background:#FF7A1A"></i></span>Ocean & Sunset</button><button type="button" class="theme-opt" data-theme-opt="royal" aria-pressed="false"><span class="sw"><i style="background:#0F1E4A"></i><i style="background:#1D4ED8"></i><i style="background:#FFC233"></i></span>Royal & Sunshine</button><button type="button" class="theme-opt" data-theme-opt="coral" aria-pressed="false"><span class="sw"><i style="background:#10233F"></i><i style="background:#16325C"></i><i style="background:#FF6B57"></i></span>Navy & Coral</button><button type="button" class="theme-opt" data-theme-opt="emerald" aria-pressed="false"><span class="sw"><i style="background:#0B3B2E"></i><i style="background:#0E7A5A"></i><i style="background:#FF9F1C"></i></span>Emerald & Mango</button><button type="button" class="theme-opt" data-theme-opt="dusk" aria-pressed="false"><span class="sw"><i style="background:#221B4D"></i><i style="background:#4535B0"></i><i style="background:#FFB020"></i></span>Indigo & Amber</button>
+    <button type="button" class="theme-opt" data-theme-opt="royal" aria-pressed="false"><span class="sw"><i style="background:#0F1E4A"></i><i style="background:#1D4ED8"></i><i style="background:#FFC233"></i></span>Royal & Sunshine (chosen)</button><button type="button" class="theme-opt" data-theme-opt="ocean" aria-pressed="false"><span class="sw"><i style="background:#0B2E4F"></i><i style="background:#0A5FA8"></i><i style="background:#FF7A1A"></i></span>Ocean & Sunset</button><button type="button" class="theme-opt" data-theme-opt="coral" aria-pressed="false"><span class="sw"><i style="background:#10233F"></i><i style="background:#16325C"></i><i style="background:#FF6B57"></i></span>Navy & Coral</button><button type="button" class="theme-opt" data-theme-opt="emerald" aria-pressed="false"><span class="sw"><i style="background:#0B3B2E"></i><i style="background:#0E7A5A"></i><i style="background:#FF9F1C"></i></span>Emerald & Mango</button><button type="button" class="theme-opt" data-theme-opt="dusk" aria-pressed="false"><span class="sw"><i style="background:#221B4D"></i><i style="background:#4535B0"></i><i style="background:#FFB020"></i></span>Indigo & Amber</button>
   </div>
   <button type="button" aria-expanded="false" aria-controls="theme-panel"><span><i style="background:var(--ocean);margin-left:0"></i><i style="background:var(--orange)"></i></span>Colours</button>
 </div>
@@ -11,7 +11,7 @@
   var toggle = box.querySelector(':scope > button'), panel = box.querySelector('.theme-panel');
   var opts = box.querySelectorAll('.theme-opt');
   var mark = function (t) { opts.forEach(function (o) { o.setAttribute('aria-pressed', o.dataset.themeOpt === t ? 'true' : 'false'); }); };
-  var current = root.getAttribute('data-theme') || 'ocean';
+  var current = root.getAttribute('data-theme') || 'royal';
   mark(current);
   toggle.addEventListener('click', function () {
     var open = panel.hidden; panel.hidden = !open; toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
@@ -19,8 +19,8 @@
   opts.forEach(function (o) {
     o.addEventListener('click', function () {
       var t = o.dataset.themeOpt;
-      if (t === 'ocean') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', t);
-      try { localStorage.setItem('v4l-theme', t); } catch (e) {}
+      if (t === 'royal') root.removeAttribute('data-theme'); else root.setAttribute('data-theme', t);
+      try { localStorage.setItem('v4l-theme2', t); } catch (e) {}
       var u = new URL(location.href); u.searchParams.set('theme', t); history.replaceState(null, '', u);
       mark(t);
     });

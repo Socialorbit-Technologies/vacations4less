@@ -1,37 +1,38 @@
-/* Vacations4Less — "Ocean & Sunset"
-   --navy    #0B2E4F  headings, footer
-   --ocean   #0A5FA8  primary blue: bands, links, page headers
-   --sky     #E6F2FB  pale tint for alternate sections
-   --orange  #FF7A1A  calls to action (navy text for contrast)
+/* Vacations4Less — "Royal & Sunshine"
+   --navy    #0F1E4A  headings, footer
+   --ocean   #1D4ED8  primary royal blue: bands, links, page headers
+   --sky     #EEF3FE  pale tint for alternate sections
+   --orange  #FFC233  sunshine yellow calls to action (navy text)
+   (Token names are historical; values are the Royal & Sunshine palette.)
 */
 :root {
-  --navy: #0B2E4F;
-  --navy-2: #12406B;
-  --ocean: #0A5FA8;
-  --ocean-dark: #084C87;
-  --sky: #E6F2FB;
-  --sky-2: #BBD9F2;
+  --navy: #0F1E4A;
+  --navy-2: #1A2D66;
+  --ocean: #1D4ED8;
+  --ocean-dark: #1A3FB0;
+  --sky: #EEF3FE;
+  --sky-2: #C7D6FB;
   --paper: #FFFFFF;
   --white: #FFFFFF;
-  --orange: #FF7A1A;
-  --orange-dark: #F0650A;
-  --orange-soft: #FFC58F;
-  --ink: #142131;
-  --muted: #4F6275;
-  --line: #D6E4F0;
-  --cta-text: #0B2E4F;
-  --cta-tint: #FFF1E6;
-  --cta-tint-line: #FFC99E;
-  --on-dark: #EAF3FC;
-  --on-dark-muted: #9DB8D3;
-  --footer: #08213A;
-  --footer-text: #A9C1DA;
-  --footer-line: #1D3E62;
-  --footer-field: #0B2E4F;
-  --footer-field-line: #2A4D72;
-  --shade-rgb: 6 30 56;      /* photo overlays and shadows */
-  --band-rgb: 8 52 98;       /* page-header photo overlay */
-  --primary-rgb: 10 95 168;
+  --orange: #FFC233;
+  --orange-dark: #F5B000;
+  --orange-soft: #FFD978;
+  --ink: #141B33;
+  --muted: #4E5874;
+  --line: #DCE3F5;
+  --cta-text: #0F1E4A;
+  --cta-tint: #FFF7DF;
+  --cta-tint-line: #FFE08A;
+  --on-dark: #EEF3FE;
+  --on-dark-muted: #A9B9E8;
+  --footer: #0B1638;
+  --footer-text: #A9B5D9;
+  --footer-line: #22306A;
+  --footer-field: #0F1E4A;
+  --footer-field-line: #33438A;
+  --shade-rgb: 10 20 56;      /* photo overlays and shadows */
+  --band-rgb: 22 52 170;       /* page-header photo overlay */
+  --primary-rgb: 29 78 216;
 
   --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", sans-serif;
   --body: "Source Serif 4", Georgia, "Times New Roman", serif;
@@ -548,16 +549,32 @@ p { margin: 0 0 1em; max-width: 68ch; }
 }
 
 /* Palette variants for client review (staging only). Each one overrides the colour tokens. */
-html[data-theme="royal"] {
-  --navy: #0F1E4A; --navy-2: #1A2D66; --ocean: #1D4ED8; --ocean-dark: #1A3FB0;
-  --sky: #EEF3FE; --sky-2: #C7D6FB;
-  --orange: #FFC233; --orange-dark: #F5B000; --orange-soft: #FFD978;
-  --ink: #141B33; --muted: #4E5874; --line: #DCE3F5;
-  --cta-text: #0F1E4A; --cta-tint: #FFF7DF; --cta-tint-line: #FFE08A;
-  --on-dark: #EEF3FE; --on-dark-muted: #A9B9E8;
-  --footer: #0B1638; --footer-text: #A9B5D9; --footer-line: #22306A;
-  --footer-field: #0F1E4A; --footer-field-line: #33438A;
-  --shade-rgb: 10 20 56; --band-rgb: 22 52 170; --primary-rgb: 29 78 216;
+html[data-theme="ocean"] {
+  --navy: #0B2E4F;
+  --navy-2: #12406B;
+  --ocean: #0A5FA8;
+  --ocean-dark: #084C87;
+  --sky: #E6F2FB;
+  --sky-2: #BBD9F2;
+  --orange: #FF7A1A;
+  --orange-dark: #F0650A;
+  --orange-soft: #FFC58F;
+  --ink: #142131;
+  --muted: #4F6275;
+  --line: #D6E4F0;
+  --cta-text: #0B2E4F;
+  --cta-tint: #FFF1E6;
+  --cta-tint-line: #FFC99E;
+  --on-dark: #EAF3FC;
+  --on-dark-muted: #9DB8D3;
+  --footer: #08213A;
+  --footer-text: #A9C1DA;
+  --footer-line: #1D3E62;
+  --footer-field: #0B2E4F;
+  --footer-field-line: #2A4D72;
+  --shade-rgb: 6 30 56;
+  --band-rgb: 8 52 98;
+  --primary-rgb: 10 95 168;
 }
 html[data-theme="coral"] {
   --navy: #10233F; --navy-2: #1B3557; --ocean: #16325C; --ocean-dark: #0F2647;

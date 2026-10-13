@@ -39,17 +39,19 @@ If the host doesn't support FTPS, change `protocol: ftps` to `ftp` in `.github/w
 
 | Token | Hex | Use |
 |---|---|---|
-| Navy | `#0B2E4F` | headings, footer |
-| Ocean | `#0A5FA8` | primary blue: bands, page headers, links |
-| Sky | `#E6F2FB` | alternate section background |
-| Orange | `#FF7A1A` | calls to action (always with navy text for contrast) |
-| Orange soft | `#FFC58F` | small highlights on blue/dark |
+| Navy | `#0F1E4A` | headings, footer |
+| Royal blue | `#1D4ED8` | primary blue: bands, page headers, links |
+| Sky | `#EEF3FE` | alternate section background |
+| Sunshine | `#FFC233` | calls to action (always with navy text) |
+| Sunshine soft | `#FFD978` | small highlights on blue/dark |
+
+Palette: **Royal & Sunshine** (chosen by the client). CSS token names (`--ocean`, `--orange`) are historical; their values are this palette.
 
 Type: Bricolage Grotesque (headings), Source Serif 4 (body).
 
 ## Colour previews (staging only)
 
-Staging builds show a "Colours" button bottom-left with five palettes: Ocean & Sunset (default), Royal & Sunshine, Navy & Coral, Emerald & Mango, Indigo & Amber. Link straight to one with `?theme=royal` (or `coral`, `emerald`, `dusk`, `ocean`). The palettes live at the end of `src/assets/css/site.css`. Production builds (`STAGING=0`) leave the switcher out; to launch with a variant, copy its values into `:root`.
+Staging builds show a "Colours" button bottom-left with five palettes: Royal & Sunshine (default, chosen), Ocean & Sunset, Navy & Coral, Emerald & Mango, Indigo & Amber. Link straight to one with `?theme=coral` (or `ocean`, `emerald`, `dusk`, `royal`). The palettes live at the end of `src/assets/css/site.css`. Production builds (`STAGING=0`) leave the switcher out; to launch with a variant, copy its values into `:root`.
 
 ## Home page slider
 
