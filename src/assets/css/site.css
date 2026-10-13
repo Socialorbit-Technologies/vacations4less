@@ -616,5 +616,8 @@ html[data-theme="dusk"] {
 .theme-opt .sw { display: inline-flex; flex: none; }
 .theme-opt .sw i { width: 20px; height: 20px; border-radius: 50%; display: block; border: 2px solid #fff; margin-left: -6px; }
 .theme-opt .sw i:first-child { margin-left: 0; }
-@media (max-width: 760px) { .theme-switch { bottom: 84px; left: 12px; } }
+@media (max-width: 900px) {
+  .theme-switch { left: auto; right: 12px; bottom: 84px; }
+  .theme-panel { left: auto; right: 0; }
+}
 @media print { .theme-switch { display: none; } }
